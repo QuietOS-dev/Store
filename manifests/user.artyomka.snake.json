@@ -1,0 +1,13 @@
+{
+  "package": "user.artyomka.snake",
+  "name": "Snake",
+  "author": "Artyomka",
+  "version": "1.0.0",
+  "category": "games",
+  "description": "Classic snake game",
+  "url": "https://drive.usercontent.google.com/u/0/uc?id=1BCb0rO5YsAXZMSCtPK10tzFr-vkhgoRh&export=download",
+  "sha256": "84bbe7d46b6d117115cb1f8d1874d2a628278a3fbfe9eb7d96f400f870c78652",
+  "api_level": 1,
+  "permissions": ["screen"],
+  "min_os_version": "0.1"
+}
