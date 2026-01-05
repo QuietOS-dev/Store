@@ -1,21 +1,35 @@
-name: Bot Commands
+name: Manifest Bot
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   issue_comment:
     types: [created]
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
   issues: write
+  pull-requests: write
 
 jobs:
-  commands:
+  manifest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Handle bot commands
-        run: python .github/scripts/bot_commands.py
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install requirements
+        run: pip install PyGithub requests pillow
+
+      - name: Run bot handler
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           BOT_USER: Artyomka628
+          BOT_USER2: QuietOS-dev
+        run: |
+          python .github/scripts/bot_commands.py
